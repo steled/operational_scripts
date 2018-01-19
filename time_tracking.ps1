@@ -12,7 +12,6 @@ $Workbook = $Excel.Workbooks.open($file)
 $Worksheet = $Workbook.Worksheets.Item($Sheet)
 $Worksheet.Activate()
 
-
 $Worksheet.Cells.Item(1,1).Activate()
 $Range = $Worksheet.Range("A1").EntireColumn
 $Search = $Range.find($SearchString,[Type]::Missing,-4163)
