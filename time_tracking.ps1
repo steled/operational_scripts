@@ -1,7 +1,7 @@
 $File = "<filename>"
 $Date = get-date -Format "dd. MM."
 $TimeMorning = get-date -date $(get-date).AddMinutes(-5) -Format "HH:mm"
-$TimeEvening = get-date -Format "HH:mm"
+$TimeEvening = get-date -date $(get-date).AddMinutes(5) -Format "HH:mm"
 $Sheet = "Bogen"
 $SearchString = "$Date"
 
