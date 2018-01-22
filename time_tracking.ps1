@@ -8,7 +8,7 @@ $SearchString = "$Date"
 $Excel = New-Object -ComObject Excel.Application
 $Excel.DisplayAlerts = $false
 $Excel.visible = $false
-$Workbook = $Excel.Workbooks.open($file)
+$Workbook = $Excel.Workbooks.open($File)
 $Worksheet = $Workbook.Worksheets.Item($Sheet)
 $Worksheet.Activate()
 
@@ -16,7 +16,7 @@ $Worksheet.Cells.Item(1,1).Activate()
 $Range = $Worksheet.Range("A1").EntireColumn
 $Search = $Range.find($SearchString,[Type]::Missing,-4163)
 $Search.Activate()
-If([string]::IsNullOrEmpty($Worksheet.Cells.Item($Search.Row,"G").value2)) {
+If([string]::IsNullOrEmpty($Worksheet.Cells.Item($Search.Row,"G").Value2)) {
     $Worksheet.Cells.Item($Search.Row,"G").Value2 = $TimeMorning
 }
 $Worksheet.Cells.Item($Search.Row,"H").Value2 = $TimeEvening
