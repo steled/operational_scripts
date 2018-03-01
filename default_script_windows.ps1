@@ -40,6 +40,10 @@ function setRegKey {
     Set-ItemProperty -Path $regPath -Name HideMergeConflicts -Value 0
 
     $regPath = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\People"
+    If (-Not(Test-Path $regPath)) {
+        New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "People" -Force
+    }
+
     Set-ItemProperty -Path $regPath -Name PeopleBand -Value 0
 	
 	$regPath = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons"
@@ -58,6 +62,7 @@ function setRegKey {
 	Set-ItemProperty -Path $regPath -Name InsertMode -Value 1
 }
 
+Set-ExecutionPolicy RemoteSigned
 setRegKey
 
 exit
