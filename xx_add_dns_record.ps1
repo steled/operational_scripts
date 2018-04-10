@@ -1,0 +1,1 @@
+Import-Csv dns_add_records.csv -Delimiter ";" | Foreach-Object { Add-DnsServerResourceRecordA -ZoneName $_.ZoneName -Name $_.Name -IPv4Address $_.IPv4Address -CreatePtr -Confirm:$false -WhatIf:$false }
